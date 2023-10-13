@@ -164,16 +164,20 @@ input.escribirname.input-coordenada {
 .topmain {
   display: flex;
 }
-.contenedor-refesh {
-  /* background-color: red; */
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.contenedor-refesh:hover {
+
+.contenedor-refesh-dark:hover {
   background-color: rgb(200, 0, 0);
   border-radius: 5px;
   box-shadow: 0 0 5px red;
   cursor: pointer;
+  font-weight: bold;
+}
+.contenedor-refesh-light:hover {
+  background-color: #fd7e7e;
+  box-shadow: 0 0 5px red;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 .img-none {
   padding: 35px;
@@ -257,9 +261,13 @@ input.escribirname.input-coordenada {
   transition: all 0.3s;
 }
 
+.lista-li-dark:hover{
+  background-color: #00000071 !important;
+
+}
 
 .lista-li:hover {
-  background-color: #000000b8;
+  background-color: #0000001e;
 }
 /* Estilo para las opciones cuando el cursor se encuentra sobre ellas */
 
@@ -358,7 +366,7 @@ input.escribirname.input-coordenada {
 }
 
 /* Aqui estamos dandole estilos a el boton de play y de delete de los puntos guardados */
-.delete-punto {
+.delete-punto-dark {
   color: black;
   background-color: rgb(238, 67, 49);
   transition: 0.3s ease;
@@ -367,20 +375,17 @@ input.escribirname.input-coordenada {
   width: 1.1rem;
   height: 1.1rem;
 }
-.delete-punto:hover {
+.delete-punto-dark:hover {
   background-color: rgb(231, 26, 26);
   box-shadow: 0 0 6px rgb(187, 8, 8);
 }
-.delete-punto:active {
+.delete-punto-dark:active {
   background-color: rgb(255, 28, 28);
   box-shadow: 0 0 8px 1px red;
 }
-.select select option.opcion-hover:hover {
-  background-color: #f0f0f0;
-  color: #333;
-}
 
-.play-punto {
+
+.play-punto-dark {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -392,32 +397,86 @@ input.escribirname.input-coordenada {
   border-radius: 50%;
   cursor: pointer;
 }
-.play-punto:hover {
+.play-punto-dark:hover {
   background-color: rgba(76, 175, 79, 0.798);
   box-shadow: 0 0 6px rgb(44, 197, 44);
 }
-.play-punto:active {
+.play-punto-dark:active {
   background-color: rgba(0, 255, 0, 0.7);
   box-shadow: 0 0 8px 1px rgb(0, 210, 0);
 }
 
 /* Estilo de la papelera */
-.delete-all-lista {
+.delete-all-listadark {
   position: relative;
   bottom: -2px;
   left: 10%;
   font-size: 1.4rem;
   cursor: pointer;
 }
-.delete-all-lista:hover {
+.delete-all-lista-dark:hover {
   box-shadow: 0 0 5px rgb(94, 0, 0);
   border-radius: 5px;
   transition: 0.3s ease;
   padding: 3px;
 }
-.delete-all-lista:active {
+.delete-all-lista-dark:active {
   background-color: rgb(150, 0, 0);
   box-shadow: 0 0 8px 2px red;
+  border-radius: 5px;
+}
+.delete-punto-light {
+  background-color: rgb(253, 65, 65);
+  transition: 0.3s ease;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.delete-punto-light:hover {
+  background-color: red;
+  box-shadow: 0 0 6px red;
+}
+.delete-punto-light:active {
+  background-color: rgb(255, 28, 28);
+  box-shadow: 0 0 8px 1px red;
+}
+
+.play-punto-light {
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: rgba(28, 240, 28, 0.7);
+  transition: 0.3s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.play-punto-light:hover {
+  background-color: rgb(47, 227, 47);
+  box-shadow: 0 0 6px rgb(44, 197, 44);
+}
+.play-punto-light:active {
+  background-color: rgba(0, 255, 0, 0.7);
+  box-shadow: 0 0 8px 1px rgb(0, 210, 0);
+}
+
+/* Estilo de la papelera */
+.delete-all-lista-light {
+  position: relative;
+  bottom: -2px;
+  left: 10%;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.delete-all-lista-light:hover {
+  background-color: rgba(45, 255, 34, 0.79);
+  box-shadow: 0 0 5px rgb(255, 105, 105);
+  border-radius: 5px;
+  transition: 0.3s ease;
+  padding: 3px;
+}
+.delete-all-lista-light:active {
+  background-color: rgb(253, 65, 65);
+  box-shadow: 0 0 5px 2px red;
   border-radius: 5px;
 }
 

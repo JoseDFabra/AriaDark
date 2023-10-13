@@ -53,10 +53,12 @@ button {
   width: 95%;
 }
 .seteo-dark {
+  cursor: pointer;
   background-color: rgb(250, 154, 23) !important;
   color: black;
 }
 .seteo-light {
+  cursor: pointer;
   color: black;
   background-color: tomato;
 }

@@ -632,7 +632,7 @@ function Pcoordenadas({ theme }) {
                   }}
                 />
                 <AiOutlineClear
-                  className="contenedor-refesh"
+                  className={`${theme==='dark'?'contenedor-refesh-dark':'contenedor-refesh-light'}`}
                   onClick={() => {
                     setPuntosList([]);
                     setNameList("");
@@ -664,7 +664,7 @@ function Pcoordenadas({ theme }) {
                   >
                     <div className="separacion-play">
                       <AiOutlinePlayCircle
-                        className="play-punto"
+                        className={`${theme === "dark" ? 'play-punto-dark' : 'play-punto-light'}`}
                         onClick={async () => {
                           /* Esta accion dara play a solo un punto */
                           const enviarPunto = {
@@ -702,7 +702,7 @@ function Pcoordenadas({ theme }) {
                     </div>
                     <div className="separacion-delete">
                       <AiOutlineCloseCircle
-                        className="delete-punto"
+                        className={`${theme==='dark' ? 'delete-punto-dark' : 'delete-punto-light'}`}
                         onClick={() => {
                           deleteThismovement(index);
                         }}
@@ -861,7 +861,7 @@ function Pcoordenadas({ theme }) {
               />
 
               <AiOutlineClear
-                className="contenedor-refesh"
+                className={`${theme==='dark'?'contenedor-refesh-dark':'contenedor-refesh-light'}`}
                 onClick={() => {
                   setMovementsList([]);
                   setSequenceName("");
@@ -883,7 +883,7 @@ function Pcoordenadas({ theme }) {
                   >
                     <div className="separacion-play">
                       <AiOutlinePlayCircle
-                        className="play-punto"
+                        className={`${theme === "dark" ? 'play-punto-dark' : 'play-punto-light'}`}
                         onClick={async () => {
                           const playmov = {
                             command: "play",
@@ -925,7 +925,7 @@ function Pcoordenadas({ theme }) {
 
                     <div className="separacion-delete">
                       <AiOutlineCloseCircle
-                        className="delete-punto"
+                        className={`${theme==='dark' ? 'delete-punto-dark' : 'delete-punto-light'}`}
                         onClick={() => {
                           deleteThisSequence(index);
                         }}
@@ -1276,7 +1276,7 @@ function Pcoordenadas({ theme }) {
                         (await getMovement(item.movement5)).data
                       );
                     }
-                    /* if (item.movement6 !== null) { movementList.push((await getMovement(item.movement5)).data) }
+                  if (item.movement6 !== null) { movementList.push((await getMovement(item.movement5)).data) }
                   if (item.movement7 !== null) { movementList.push((await getMovement(item.movement5)).data) }
                   if (item.movement8 !== null) { movementList.push((await getMovement(item.movement5)).data) }
                   if (item.movement9 !== null) { movementList.push((await getMovement(item.movement5)).data) }
@@ -1295,7 +1295,7 @@ function Pcoordenadas({ theme }) {
                   if (item.movement22 !== null) { movementList.push((await getMovement(item.movement22)).data) }
                   if (item.movement23 !== null) { movementList.push((await getMovement(item.movement23)).data) }
                   if (item.movement24 !== null) { movementList.push((await getMovement(item.movement24)).data) }
-                  if (item.movement25 !== null) { movementList.push((await getMovement(item.movement25)).data) } */
+                  if (item.movement25 !== null) { movementList.push((await getMovement(item.movement25)).data) }
 
                     setMovementsList(movementList);
                   }}
@@ -1303,7 +1303,7 @@ function Pcoordenadas({ theme }) {
                 >
                   <div className="separacion-play">
                     <AiOutlinePlayCircle
-                      className="play-punto"
+                      className={`${theme === "dark" ? 'play-punto-dark' : 'play-punto-light'}`}
                       onClick={async () => {
                         const playseq = {
                           command: "play",
@@ -1347,7 +1347,7 @@ function Pcoordenadas({ theme }) {
 
                   <div className="separacion-delete">
                     <AiOutlineCloseCircle
-                      className="delete-punto"
+                      className={`${theme==='dark' ? 'delete-punto-dark' : 'delete-punto-light'}`}
                       onClick={async () => {
                         const confirmdelete = window.confirm(
                           "Advertencia: Estás a punto de borrar permanentemente una secuencia. Esta acción no se puede deshacer. Por favor, asegúrate de que estás seleccionando la secuencia correcta para eliminar. ¿Estás seguro de que deseas proceder con la eliminación?"
