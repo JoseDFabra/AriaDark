@@ -1,5 +1,5 @@
 import React from "react";
-import "../stylesheets/dark/buttonlink.css"
+import "../stylesheets/buttonlink.css"
 function Buttonlink(props){
   return(
     <div className="container-buttonlink">

@@ -7,12 +7,21 @@
   align-items: center;
   justify-content: flex-start;
   margin: 2px;
-  box-shadow: 3px 3px 13px #00000028;
   border-radius: 20px;
-  background-color: rgb(65, 65, 65);
-  color: white;
   font-weight: 600;
+  box-shadow: 3px 3px 13px #00000028;
 }
+.container-card-dark {
+  transition: all 0.3s;
+  color: white;
+  background-color: rgb(65, 65, 65);
+}
+.container-card-light {
+  transition: all 0.3s;
+  background-color: white;
+  color: black;
+}
+
 
 .imagen-izquierda {
   display: flex;
@@ -60,15 +69,20 @@ small {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: 86%;
-  min-height: 100vh;
+  width: 90% !important;
+  min-height: 2px !important;
 }
 .titulo-card {
   width: 100%;
   margin-bottom: 5px;
   text-align: center;
-  color: white;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.6);
+}
+.titulo-card-dark{
+  color: white;
+}
+.titulo-card-light{
+  color: #000;
 }
 .contenedor-imagen-form {
   display: flex;
@@ -87,9 +101,17 @@ small {
   gap: 0.13rem;
   flex-direction: column;
   align-items: flex-start;
-  background-color: rgb(65, 65, 65);
   font-size: 1rem;
 }
+.container-form-dark{
+  transition: all 0.3s;
+  background-color: rgb(65, 65, 65);
+}
+.container-form-light{
+  transition: all 0.3s;
+  background-color: white;
+}
+
 .container-input {
   display: flex;
   height: 40px;
@@ -104,9 +126,18 @@ small {
   width: 3.7rem;
   border-radius: 8px;
   border: none;
+  box-shadow: 1px 1px 3px #00000028;
+
+}
+.input-coordenada-dark{
   background-color: #000000;
   color: white;
 }
+.input-coordenada-light{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
 input.escribirname.input-coordenada {
   width: 8rem;
 }
@@ -297,7 +328,7 @@ input.escribirname.input-coordenada {
 /* Aqui estamos dandole estilos a el boton de play y de delete de los puntos guardados */
 .delete-punto {
   color: black;
-  background-color: rgb(150, 0, 0);
+  background-color: rgb(238, 67, 49);
   transition: 0.3s ease;
   border-radius: 50%;
   cursor: pointer;
@@ -324,13 +355,13 @@ input.escribirname.input-coordenada {
   color: black;
   width: 1.1rem;
   height: 1.1rem;
-  background-color: rgba(28, 240, 28, 0.5);
+  background-color: rgb(76,175,80);
   transition: 0.3s ease;
   border-radius: 50%;
   cursor: pointer;
 }
 .play-punto:hover {
-  background-color: rgba(25, 129, 25, 0.7);
+  background-color: rgba(76, 175, 79, 0.798);
   box-shadow: 0 0 6px rgb(44, 197, 44);
 }
 .play-punto:active {
@@ -369,6 +400,7 @@ input.escribirname.input-coordenada {
 .motor-control {
   display: flex;
   align-items: center;
+  width: 165px;
 }
 
 .switch {
@@ -430,7 +462,8 @@ input:checked + .slider:before {
     width: 90%;
     height: 80%;
   }
-  .segundo-contenedor .tercer-contenedor {
-    background-color: #4caf50;
-  }
+}
+
+@media (max-width: 1380px) {
+
 }

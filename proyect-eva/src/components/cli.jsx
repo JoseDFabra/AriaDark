@@ -1,4 +1,4 @@
-import "../stylesheets/dark/cli.css";
+import "../stylesheets/cli.css";
 import { playpoint, setHome } from "../api/cobot.api";
 import { toast } from "react-hot-toast";
 import React, { useState, useEffect } from "react";
@@ -16,8 +16,9 @@ const customStyles = {
     color: "white",
     border: "none",
     borderRadius: "8px",
-    width: "80%",
+    width: "90%",
     margin: "auto",
+    height: "100vh",
   },
 };
 
@@ -63,8 +64,8 @@ const Cli = (props) => {
 
   const enviarHome = {
     command: "play",
-    type: "point",
-    name: "home",
+    type: "sequence",
+    name: "HOME",
   };
   const enviarP0 = {
     command: "play",
@@ -91,14 +92,16 @@ const Cli = (props) => {
         await setHome(comandoHome);
         openModal();
       } else {
-        toast.error(`set`, { position: "bottom-right",
-        style: { backgroundColor: "#333", color: "#fff" },
-       });
+        toast.error(`Set cancelado`, {
+          position: "bottom-right",
+          style: { backgroundColor: "#333", color: "#fff" },
+        });
       }
     } catch (error) {
-      toast.error(`${error}`, { position: "bottom-right",
-      style: { backgroundColor: "#333", color: "#fff" },
-    });
+      toast.error(`${error.message}`, {
+        position: "bottom-right",
+        style: { backgroundColor: "#333", color: "#fff" },
+      });
     }
   };
   const home = async () => {
@@ -106,14 +109,15 @@ const Cli = (props) => {
       const res = await playpoint(enviarHome);
       console.log(enviarHome);
       console.log(res);
-      toast.success(`Robot en movimiento - home`, {
+      toast.success(`Robot en movimiento - ${enviarHome.name}`, {
         style: { backgroundColor: "#333", color: "#fff" },
         position: "bottom-right",
       });
     } catch (error) {
-      toast.error(`${error.response.data.name}`, { position: "bottom-right",
-      style: { backgroundColor: "#333", color: "#fff" },
-    });
+      toast.error(`${error.message}`, {
+        position: "bottom-right",
+        style: { backgroundColor: "#333", color: "#fff" },
+      });
     }
   };
   const inter = async () => {
@@ -125,9 +129,10 @@ const Cli = (props) => {
         position: "bottom-right",
       });
     } catch (error) {
-      toast.error(`${error.response.data.name}`, { position: "bottom-right",
-      style: { backgroundColor: "#333", color: "#fff" },
-    });
+      toast.error(`${error.message}`, {
+        position: "bottom-right",
+        style: { backgroundColor: "#333", color: "#fff" },
+      });
     }
   };
   const gripper = async () => {
@@ -139,9 +144,10 @@ const Cli = (props) => {
         position: "bottom-right",
       });
     } catch (error) {
-      toast.error(`${error.response.data.name}`, { position: "bottom-right",
-      style: { backgroundColor: "#333", color: "#fff" },
-    });
+      toast.error(`${error.message}`, {
+        position: "bottom-right",
+        style: { backgroundColor: "#333", color: "#fff" },
+      });
     }
   };
   const p0 = async () => {
@@ -153,23 +159,24 @@ const Cli = (props) => {
         position: "bottom-right",
       });
     } catch (error) {
-      toast.error(`${error.response.data.name}`, { position: "bottom-right",
-      style: { backgroundColor: "#333", color: "#fff" },
-    });
+      toast.error(`${error.message}`, {
+        position: "bottom-right",
+        style: { backgroundColor: "#333", color: "#fff" },
+      });
     }
   };
 
   return (
     <div className="card-cli">
       <div className="contenedor-seteo">
-      <button className="btn-seteo seteo"
-        onClick={() => {
-          set();
-        }}
-      >
-        Set
-      </button>
-
+        <button
+          className="btn-seteo seteo"
+          onClick={() => {
+            set();
+          }}
+        >
+          Set
+        </button>
       </div>
       <Modal
         isOpen={modalIsOpen}

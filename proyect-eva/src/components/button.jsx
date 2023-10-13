@@ -1,4 +1,4 @@
-import '../stylesheets/dark/button.css'
+import '../stylesheets/button.css'
 import React from "react";
 
 function Button({ text, onClick }){

@@ -13,6 +13,7 @@
 }
 button {
   background-color: black;
+  user-select: none;
   color: white;
   padding: 6px 10px;
   border-radius: 8px;
@@ -26,7 +27,7 @@ button:hover {
 .seteo {
   width: 95%;
   background-color: rgb(250, 154, 23) !important;
-  color: black ;
+  color: black;
 }
 .accion-rapida {
   display: flex;
@@ -79,9 +80,8 @@ button:hover {
     padding-left: 10%;
   }
 }
-@media (max-width: 500px) { 
+@media (max-width: 500px) {
   .contenedor-seteo {
     width: 30%;
   }
-  
 }
