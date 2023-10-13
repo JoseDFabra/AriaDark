@@ -103,10 +103,16 @@ function Pcoordenadas({ theme }) {
       await createPoint(data);
       const respuespuntos = await getAllPoints();
       setpointsOptions(respuespuntos.data);
-      toast.success("Punto Creado", {
-        position: "bottom-right",
-        style: { backgroundColor: "#333", color: "#fff" },
-      });
+      theme === "dark"
+        ? toast.success("Punto Creado", {
+            position: "bottom-right",
+            style: { backgroundColor: "#333", color: "#fff" },
+          })
+        : toast.success("Punto Creado", {
+            position: "bottom-right",
+            style: { backgroundColor: "#fff", color: "#000" },
+          });
+
       reset();
     } catch (error) {
       toast.error(error.message, {
@@ -312,7 +318,7 @@ function Pcoordenadas({ theme }) {
 
   return (
     <>
-      <Cli />
+      <Cli theme={theme} />
       <div
         className={`
       container-card
@@ -361,7 +367,12 @@ function Pcoordenadas({ theme }) {
                   />
                   <span className="slider"></span>
                 </label>
-                <span className="status" id="statusText">
+                <span
+                  className={`status ${
+                    theme === "dark" ? "status-dark" : "status-ligth"
+                  } `}
+                  id="statusText"
+                >
                   {isActive ? "Motores ON" : "Motores OFF"}
                 </span>
               </div>
@@ -381,7 +392,11 @@ function Pcoordenadas({ theme }) {
                 <input
                   type="text"
                   placeholder="Max 5 Char"
-                  className={`input-coordenada escribirname ${theme==='dark'? 'input-coordenada-dark':'input-coordenada-light'}`}
+                  className={`input-coordenada escribirname ${
+                    theme === "dark"
+                      ? "input-coordenada-dark"
+                      : "input-coordenada-light"
+                  }`}
                   {...register("name", { required: true, maxLength: 5 })}
                   autoComplete="off"
                 />
@@ -496,7 +511,7 @@ function Pcoordenadas({ theme }) {
               </div>
               <div className="botton-form">
                 <div className="contenido2">
-                  <Button text="Save Point" />
+                  <Button text="Save Point" theme={theme} />
                 </div>
               </div>
             </form>
@@ -505,7 +520,9 @@ function Pcoordenadas({ theme }) {
         <div className="form2"></div>
         <div className="footer-card-select">
           <select
-            className="select"
+            className={`select ${
+              theme === "dark" ? "select-dark" : "select-light"
+            }`}
             defaultValue={""}
             name="puntos"
             onChange={(e) => {
@@ -521,7 +538,9 @@ function Pcoordenadas({ theme }) {
             <option value={""}>Seleccionar punto</option>
             {pointsOptions.map((p, i) => (
               <option
-                className="lista-li option-hover"
+                className={`lista-li option-hover ${
+                  theme === "dark" ? "lista-li-dark" : "lista-li-light"
+                }`}
                 key={i}
                 value={JSON.stringify(p)}
               >
@@ -540,9 +559,14 @@ function Pcoordenadas({ theme }) {
           {/* <Buttonsend textbutton="Guadar" onClick={()=>{console.log(i)}} /> */}
 
           <div className="separacion-borrarpunto">
-            <Button text={"Play Punto"} onClick={moverpunto} />
-            <Button text={"Update Punto"} onClick={actualizandoPunto} />
+            <Button text={"Play Punto"} onClick={moverpunto} theme={theme} />
             <Button
+              text={"Update Punto"}
+              onClick={actualizandoPunto}
+              theme={theme}
+            />
+            <Button
+              theme={theme}
               text="Delete Point"
               onClick={async () => {
                 if (currentPunto) {
@@ -598,7 +622,11 @@ function Pcoordenadas({ theme }) {
                   autoComplete="off"
                   placeholder="Max 10 Char"
                   maxLength={10}
-                  className={`input-coordenada escribirname ${theme==='dark'? 'input-coordenada-dark':'input-coordenada-light'}`}
+                  className={`input-coordenada escribirname ${
+                    theme === "dark"
+                      ? "input-coordenada-dark"
+                      : "input-coordenada-light"
+                  }`}
                   onChange={(e) => {
                     setNameList(e.target.value);
                   }}
@@ -628,7 +656,12 @@ function Pcoordenadas({ theme }) {
             >
               {Array.isArray(puntosList) && puntosList.length > 0 ? (
                 puntosList.map((p, index) => (
-                  <li className="lista-li" key={index}>
+                  <li
+                    className={`lista-li option-hover ${
+                      theme === "dark" ? "lista-li-dark" : "lista-li-light"
+                    }`}
+                    key={index}
+                  >
                     <div className="separacion-play">
                       <AiOutlinePlayCircle
                         className="play-punto"
@@ -661,10 +694,10 @@ function Pcoordenadas({ theme }) {
                       </div>
                       <div className="separacion-coordenada">
                         {`[${p.motor1_angle}],
-                  [${p.motor2_angle}],
-                  [${p.motor3_angle}],
-                  [${p.motor4_angle}],
-                  [${p.motor5_angle}]`}
+                        [${p.motor2_angle}],
+                        [${p.motor3_angle}],
+                        [${p.motor4_angle}],
+                        [${p.motor5_angle}]`}
                       </div>
                     </div>
                     <div className="separacion-delete">
@@ -688,11 +721,13 @@ function Pcoordenadas({ theme }) {
             </ReactSortable>
           </ul>
           <div className="footer-card">
-            <Button text="Save Movement" onClick={savePoints} />
+            <Button text="Save Movement" onClick={savePoints} theme={theme} />
           </div>
           <div className="footer-card-select">
             <select
-              className="select"
+              className={`select ${
+                theme === "dark" ? "select-dark" : "select-light"
+              }`}
               defaultValue={""}
               name="puntos"
               onChange={(e) => {
@@ -707,7 +742,13 @@ function Pcoordenadas({ theme }) {
             >
               <option value={""}>Seleccionar punto</option>
               {pointsOptions.map((p, i) => (
-                <option className="lista-li" key={i} value={JSON.stringify(p)}>
+                <option
+                  className={`lista-li option-hover ${
+                    theme === "dark" ? "lista-li-dark" : "lista-li-light"
+                  }`}
+                  key={i}
+                  value={JSON.stringify(p)}
+                >
                   {`${p.name}: 
                   [${p.motor1_angle}],
                   [${p.motor2_angle}],
@@ -723,6 +764,7 @@ function Pcoordenadas({ theme }) {
             </div>
             {/* <Buttonsend textbutton="Guadar" onClick={()=>{console.log(i)}} /> */}
             <Button
+              theme={theme}
               text="Add To The List"
               onClick={() => {
                 if (currentPunto) {
@@ -737,6 +779,7 @@ function Pcoordenadas({ theme }) {
             />
             <div className="separacion-borrarpunto">
               <Button
+                theme={theme}
                 text="Update Movement"
                 onClick={async () => {
                   if (currentMovement) {
@@ -807,7 +850,11 @@ function Pcoordenadas({ theme }) {
                 autoComplete="off"
                 placeholder="Max 30 Char"
                 maxLength={30}
-                className={`input-coordenada escribirname ${theme==='dark'? 'input-coordenada-dark':'input-coordenada-light'}`}
+                className={`input-coordenada escribirname ${
+                  theme === "dark"
+                    ? "input-coordenada-dark"
+                    : "input-coordenada-light"
+                }`}
                 onChange={(e) => {
                   setSequenceName(e.target.value);
                 }}
@@ -828,7 +875,12 @@ function Pcoordenadas({ theme }) {
             >
               {Array.isArray(movementsList) && movementsList.length > 0 ? (
                 movementsList.map((p, index) => (
-                  <li className="lista-li" key={index}>
+                  <li
+                    className={`lista-li option-hover ${
+                      theme === "dark" ? "lista-li-dark" : "lista-li-light"
+                    }`}
+                    key={index}
+                  >
                     <div className="separacion-play">
                       <AiOutlinePlayCircle
                         className="play-punto"
@@ -889,6 +941,7 @@ function Pcoordenadas({ theme }) {
 
           <div className="footer-card solo-sequence">
             <Button
+              theme={theme}
               text="Save Sequence"
               onClick={() => {
                 saveSequence();
@@ -897,7 +950,9 @@ function Pcoordenadas({ theme }) {
           </div>
           <div className="footer-card-select">
             <select
-              className="select"
+              className={`select ${
+                theme === "dark" ? "select-dark" : "select-light"
+              }`}
               defaultValue={""}
               onChange={async (e) => {
                 const value = e.target.value;
@@ -974,7 +1029,13 @@ function Pcoordenadas({ theme }) {
             >
               <option value={""}>Select a move</option>
               {movementOptions.map((p, i) => (
-                <option className="lista-li" key={i} value={JSON.stringify(p)}>
+                <option
+                  className={`lista-li option-hover ${
+                    theme === "dark" ? "lista-li-dark" : "lista-li-light"
+                  }`}
+                  key={i}
+                  value={JSON.stringify(p)}
+                >
                   {/* si agregan mas puntos para los movimientos aqui es donde se puede hacer ver */}
                   {`${p.name}: ${
                     p.gripper !== null && p.gripper !== undefined
@@ -1010,6 +1071,7 @@ function Pcoordenadas({ theme }) {
             </div>
             {/* <Buttonsend textbutton="Guadar" onClick={()=>{console.log(i)}} /> */}
             <Button
+              theme={theme}
               text="Add To The List"
               onClick={() => {
                 if (currentMovement) {
@@ -1024,6 +1086,7 @@ function Pcoordenadas({ theme }) {
             />
             <div className="separacion-borrarpunto ">
               <Button
+                theme={theme}
                 text="Play movement"
                 onClick={async () => {
                   if (currentMovement) {
@@ -1056,6 +1119,7 @@ function Pcoordenadas({ theme }) {
               />
 
               <Button
+                theme={theme}
                 text="Delete Movement"
                 onClick={async () => {
                   if (currentMovement) {
@@ -1092,6 +1156,7 @@ function Pcoordenadas({ theme }) {
             </div>
             <div>
               <Button
+                theme={theme}
                 text="Update Sequence"
                 onClick={async () => {
                   if (currentMovement) {
@@ -1171,7 +1236,9 @@ function Pcoordenadas({ theme }) {
             {Array.isArray(sequenceOptions) && sequenceOptions.length > 0 ? (
               sequenceOptions.map((item, index) => (
                 <li
-                  className="lista-li li-grandes li-click"
+                  className={`lista-li li-grandes li-click option-hover ${
+                    theme === "dark" ? "lista-li-dark" : "lista-li-light"
+                  }`}
                   onClick={async () => {
                     /* console.log(`Click en ${JSON.stringify(item)}`);
                   console.log(item.name); */

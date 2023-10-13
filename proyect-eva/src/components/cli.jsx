@@ -22,7 +22,7 @@ const customStyles = {
   },
 };
 
-const Cli = (props) => {
+const Cli = ({theme}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [remainingTime, setRemainingTime] = useState(60);
 
@@ -167,10 +167,10 @@ const Cli = (props) => {
   };
 
   return (
-    <div className="card-cli">
+    <div className={`card-cli ${theme==='dark'?'card-cli-dark':'card-cli-light'}`}>
       <div className="contenedor-seteo">
         <button
-          className="btn-seteo seteo"
+          className={`btn-seteo seteo ${theme==='dark'?'seteo-dark':'seteo-light'}`}
           onClick={() => {
             set();
           }}
@@ -192,10 +192,10 @@ const Cli = (props) => {
         </div>
       </Modal>
       <div className="accion-rapida">
-        <button onClick={home}>Home</button>
-        <button onClick={inter}>Inter</button>
-        <button onClick={gripper}>Gripper</button>
-        <button onClick={p0}>P0</button>
+        <button className={`${theme==='dark'?'btn-dark':'btn-light'}`} onClick={home}>Home</button>
+        <button className={`${theme==='dark'?'btn-dark':'btn-light'}`} onClick={inter}>Inter</button>
+        <button className={`${theme==='dark'?'btn-dark':'btn-light'}`} onClick={gripper}>Gripper</button>
+        <button className={`${theme==='dark'?'btn-dark':'btn-light'}`} onClick={p0}>P0</button>
       </div>
     </div>
   );

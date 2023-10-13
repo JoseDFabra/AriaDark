@@ -104,8 +104,13 @@ small {
   font-size: 1rem;
 }
 .container-form-dark{
-  transition: all 0.3s;
+  color: #fff;}
+  .container-form-dark{
+transition: all 0.3s;
   background-color: rgb(65, 65, 65);
+} 
+.container-form-light{
+color: black !important;
 }
 .container-form-light{
   transition: all 0.3s;
@@ -126,7 +131,7 @@ small {
   width: 3.7rem;
   border-radius: 8px;
   border: none;
-  box-shadow: 1px 1px 3px #00000028;
+  box-shadow: 1px 1px 3px #00000067;
 
 }
 .input-coordenada-dark{
@@ -230,13 +235,29 @@ input.escribirname.input-coordenada {
   font-weight: 400;
   border-radius: 15px;
   margin-top: 10px;
-  box-shadow: 0 1px 1px #0000006b;
-  background-color: rgb(0, 0, 0);
   cursor: move;
   user-select: none;
-  box-shadow: 0 1px 5px rgba(128, 128, 128, 0.777) !important;
+  box-shadow: 0 1px 1px #0000006b;
   /* Cambiar el color de los select*** */
 }
+.lista-li-dark{
+  color: #fff;
+}
+.lista-li-dark{
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 1px 5px rgba(128, 128, 128, 0.777) !important;
+  transition: all 0.3s;
+}
+.lista-li-light{
+  color: #000;
+}
+.lista-li-light{
+  background-color: rgb(199, 199, 199);
+  box-shadow: 0 1px 1px #0000006b;
+  transition: all 0.3s;
+}
+
+
 .lista-li:hover {
   background-color: #000000b8;
 }
@@ -283,6 +304,17 @@ input.escribirname.input-coordenada {
   padding: 5px;
   background: #000;
   color: white;
+}
+.select-dark{
+  background: #000;
+  color: white;
+  transition: all 0.3s;
+  
+}
+.select-light{
+  background-color: #fff;
+  color: #000;
+  transition: all 0.3s;
 }
 
 /* pld es el vid que contiene los botones de p: play.  l: lista y el boton d: delete */
@@ -454,7 +486,13 @@ input:checked + .slider:before {
 
 .status {
   font-size: 1rem;
+}
+status-dark{
   color: #ffffff;
+  
+}
+status-ligth{
+color: black;
 }
 
 @media (max-width: 1380px) {
